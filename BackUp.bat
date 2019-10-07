@@ -18,7 +18,7 @@ del "%temp%\~robodel" /q
 :robocopy
 REM Robocopy compares files last modified date in source and destination folder and updates out of date copies
 For /d %%d in ("%dFolder%\*") do If not exist "%%d\log" mkdir "%%d\log"
-For /d %%d in ("%dFolder%\*") do ROBOCOPY "\\Gbwni0vs01\JMBM\BIM\01-WIP\BIM-AC\Revit Model\%%~nd" "%%d" *.rvt /log:"%%d\log\%mydate%_%mytime%_%%~nd.log"
+For /d %%d in ("%dFolder%\*") do ROBOCOPY "\\Gbwni0vs01\JMBM\BIM\01-WIP\%%~nd\Revit Model" "%%d" *.rvt /log:"%%d\log\%mydate%_%mytime%_%%~nd.log"
 
 :archive
 For /d %%d in ("%dFolder%\*") do If not exist "%%d\archive" mkdir "%%d\archive"
